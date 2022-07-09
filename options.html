@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Emoji Substitution Options</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+<!-- Option to add a new emoji substitution into emojiMap.js-->
+<body>
+    <div>
+        <form>
+            <label><b>Add one custom emoji substitution of your liking:</b></label><br>
+            <p>Text to replace: <input type="text" id="replaced" ></p>
+            <p>Emoji: <input type="text" id="emoji" ></p>
+            <!--<p>Emoji: <input type="text" id="emoji"></p><br>-->
+            <button type="submit">Add Substitution</button>
+        </form>
+        <script src="emojiMap.js"></script>
+    </div>
+    <div>
+        <p><b>Current custom emoji:</b></p>
+        <p id = 'recentReplaced'>None</p>
+        <p id = 'recentEmoji'>None</p>
+        <p><b>Emojis in use:</b></p>
+        <script src="display.js"></script>
+    </div>
+</body>
+
+</html>
