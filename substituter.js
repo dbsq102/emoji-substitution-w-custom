@@ -11,8 +11,14 @@ Promise.all([
   browser.storage.sync.get('replaced'),
   browser.storage.sync.get('emoji')
 ]).then(([res, res2]) => {
-  emojiMap.set(res.replaced, res2.emoji);
-  regexs.set(res.replaced, new RegExp(res.replaced, 'gi'));
+  if (res.replaced === undefined || res.emoji === undefined) {
+    emojiMap.set('None', 'None');
+    regexs.set('None', new RegExp('None', 'gi'));
+  }
+  if (res.replaced != undefined || res.emoji != undefined) {
+    emojiMap.set(res.replaced, res2.emoji);
+    regexs.set(res.replaced, new RegExp(res.replaced, 'gi'));
+  }
   replaceText(document.body);
 })
 
@@ -76,4 +82,5 @@ observer.observe(document.body, {
   subtree: true
 });
 
+document.addEventListener('DOMContentLoaded', replaceText(document.body));
 document.querySelector("form").addEventListener("submit", replaceText(document.body));
